@@ -21,6 +21,9 @@ Run the following command to install the required libraries:
 - **`PutObjectCommand`**: A request object used to signal that you want to "put" or "upload" a file into your bucket.
   - **Params**: Requires Bucket and Key. It is highly recommended to include ContentType (e.g., image/png) to ensure the file is identified correctly.
 - **`putObjectUrl (Presigned)`**: Created by passing a PutObjectCommand into the getSignedUrl function.
+- **`ListObjectsV2Command`**: Yeh command aapke bucket ke andar maujood files (objects) ki list fetch karne ke liye use hoti hai. "V2" iska optimized aur recommended version hai.
+  - **Params**: Requires Bucket. Aap Prefix (folder path) bhi de sakte hain taaki sirf specific folder ki files dikhayi dein.
+  - **Contents**: Yeh command response mein ek array return karti hai jisme har file ki details hoti hain (jaise Key, Size, aur LastModified).
 - **`dotenv`**: A utility that loads variables from a `.env` file into `process.env` to keep sensitive credentials secure.
 
 ---
