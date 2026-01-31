@@ -7,7 +7,7 @@ const s3Client = require("./client");
 const putObject = async (fileName, contentType) => {
   const command = new PutObjectCommand({
     Bucket: process.env.BUCKET_NAME,
-    Key: `/uploads/user-uploads/${fileName}`,
+    Key: `uploads/user-uploads/${fileName}`,
     ContentType: contentType,
   });
   const url = await getSignedUrl(s3Client, command);
