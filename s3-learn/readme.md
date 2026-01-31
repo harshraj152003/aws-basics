@@ -18,6 +18,9 @@ Run the following command to install the required libraries:
 - **`getSignedUrl`**: A function that creates a temporary, secure URL for accessing private objects without publicizing the bucket.
   - **Params**: The `S3Client` instance, the `Command` to authorize, and an options object (e.g., `{ expiresIn }`).
 - **`expiresIn`**: A parameter (in seconds) that determines how long the generated URL remains active before it expires.
+- **`PutObjectCommand`**: A request object used to signal that you want to "put" or "upload" a file into your bucket.
+  - **Params**: Requires Bucket and Key. It is highly recommended to include ContentType (e.g., image/png) to ensure the file is identified correctly.
+- **`putObjectUrl (Presigned)`**: Created by passing a PutObjectCommand into the getSignedUrl function.
 - **`dotenv`**: A utility that loads variables from a `.env` file into `process.env` to keep sensitive credentials secure.
 
 ---
@@ -25,6 +28,7 @@ Run the following command to install the required libraries:
 ### 💡 Purpose
 
 This script acts as a secure intermediary that:
-* **Protects Data:** Keeps your S3 bucket private.
-* **Grants Access:** Generates a temporary link via `getSignedUrl`.
-* **Self-Destructs:** The link automatically expires after 10 minutes.
+
+- **Protects Data:** Keeps your S3 bucket private.
+- **Grants Access:** Generates a temporary link via `getSignedUrl`.
+- **Self-Destructs:** The link automatically expires after 10 minutes.
