@@ -24,6 +24,12 @@ Run the following command to install the required libraries:
 - **`ListObjectsV2Command`**: Yeh command aapke bucket ke andar maujood files (objects) ki list fetch karne ke liye use hoti hai. "V2" iska optimized aur recommended version hai.
   - **Params**: Requires Bucket. Aap Prefix (folder path) bhi de sakte hain taaki sirf specific folder ki files dikhayi dein.
   - **Contents**: Yeh command response mein ek array return karti hai jisme har file ki details hoti hain (jaise Key, Size, aur LastModified).
+- **`DeleteObjectCommand`**: Used when you want to permanently remove a single specific file from your bucket.
+  - **Params**: Requires Bucket and Key (the string path of the file).
+  - **Note**: This command executes immediately; it does not return the deleted object, only a confirmation of the request.
+- **`DeleteObjectsCommand`**: The "bulk" version of the delete command, allowing you to remove up to 1,000 objects in a single network request.
+  - **Params**: Requires Bucket and a Delete object containing an Objects array.
+  - **Structure**: Each item in the array must be an object: { Objects: [{ Key: "file1.jpg" }, { Key: "file2.jpg" }] }.
 - **`dotenv`**: A utility that loads variables from a `.env` file into `process.env` to keep sensitive credentials secure.
 
 ---
